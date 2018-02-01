@@ -19,7 +19,13 @@
     vm.logout = logout;
 
     function login() {
-      $state.go('main.gym')
+      var response = 'gym';
+
+      if (response == "admin") {
+        $state.go('main.admin')
+      } else {
+        $state.go('main.gym')
+      }
       /*User.login(vm.userCredentials)
         .then(function (result) {
           console.log(result)
