@@ -16,14 +16,11 @@
     return {
       login: function (params) {
         var def = $q.defer()
-        $http.post(BASE_URL + '/api/users/login', {
-          username: params.username,
+        $http.post('https://gym2go-server.herokuapp.com/api/admin-users/login', {
+          email: params.email,
           password: params.password
         })
           .then(function (res) {
-            $localStorage.api_token = res.data.api_token
-            $localStorage.lastUser = res.data.username
-            updateApiTokenHeader(res.data.api_token)
             def.resolve(res)
           })
           .catch(function (err) {
@@ -34,12 +31,10 @@
       },
       signup: function (params) {
         var def = $q.defer()
-        $http.post(BASE_URL + '/api/users', {
-            username: params.username,
+        $http.post('https://gym2go-server.herokuapp.com/api/admin-users/', {
+            email: params.email,
             password: params.password,
-            first_name: params.first_name,
-            last_name: params.last_name,
-            email: params.email
+            type: params.type
           })
           .then(function (res) {
             def.resolve(res)

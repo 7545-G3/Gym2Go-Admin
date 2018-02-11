@@ -10,7 +10,7 @@
     $logProvider.debugEnabled(true);
     $httpProvider.interceptors.push('authInterceptor');
     $httpProvider.interceptors.push('spinnerInterceptor');
-    $urlRouterProvider.otherwise('/drivers');
+    //$urlRouterProvider.otherwise('/drivers');
     $locationProvider.html5Mode(true);
   }
 

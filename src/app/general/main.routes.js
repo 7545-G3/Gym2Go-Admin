@@ -10,7 +10,7 @@
 
       .state({
         name: 'main',
-        url: '/',
+        url: '/main',
         templateUrl: 'app/general/main.view.html',
         controller: 'MainController',
         controllerAs: 'mainController'

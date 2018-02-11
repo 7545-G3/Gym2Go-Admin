@@ -10,12 +10,13 @@
       var vm = this;
 
       vm.registerCredentials = {
-        username: null,
+        email: null,
         password: null,
+        type: 'gym'/*,
         cc_name: null,
         cc_number: null,
         cc_sec: null,
-        cc_expiry: null
+        cc_expiry: null*/
       }
 
       vm.error = null;

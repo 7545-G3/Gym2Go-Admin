@@ -9,7 +9,7 @@
     var vm = this;
 
     vm.userCredentials = {
-      username: $localStorage.lastUser,
+      email: null,
       password: null
     }
 
@@ -19,23 +19,19 @@
     vm.logout = logout;
 
     function login() {
-      var response = 'gym';
-
-      if (response == "admin") {
-        $state.go('main.admin')
-      } else {
-        $state.go('main.gym')
-      }
-      /*User.login(vm.userCredentials)
+      User.login(vm.userCredentials)
         .then(function (result) {
           console.log(result)
-          vm.dataLoading = false;
-          $state.go('main.drivers')
+          if (result.data.type == "gym") {
+            $state.go('main.gym.activities')
+          } else {
+            $state.go('main.admin')
+          }
         })
         .catch(function (err) {
           console.log('something was wrong');
           vm.error = err
-        })*/
+        })
     }
     function logout() {
       User.logout()
