@@ -4,7 +4,7 @@
   angular.module('taxiManagement')
     .factory('User', User)
 
-  function User($http, $q, $localStorage, BASE_URL) {
+  function User($http, $q, $localStorage) {
     var updateApiTokenHeader = function (token) {
       if (token) {
         $http.defaults.headers.common.Authorization = 'Bearer ' + token

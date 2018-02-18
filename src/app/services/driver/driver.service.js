@@ -4,7 +4,7 @@
   angular.module('taxiManagement')
     .factory('Driver', Driver)
 
-  function Driver($http, $q, BASE_URL) {
+  function Driver($http, $q) {
 
     return {
       create: function (params) {
