@@ -30,7 +30,7 @@
             $state.go('login')
           })
           .catch(function (err) {
-            vm.error = SignupErrorHandler.handleError(err);
+            console.log("ERROR ON REGISTER");
           })
       }
     }

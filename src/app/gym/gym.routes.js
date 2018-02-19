@@ -18,7 +18,7 @@
 
       .state({
         name: 'main.gym.activities',
-        url: 'activities',
+        url: 'activities/{id}',
         templateUrl: 'app/gym/activities/activities.view.html',
         controller: 'ActivitiesController',
         controllerAs: 'vm'
@@ -26,7 +26,7 @@
 
       .state({
         name: 'main.gym.clothing',
-        url: 'clothing',
+        url: 'clothing/{id}',
         templateUrl: 'app/gym/clothing/clothing.view.html',
         controller: 'ClothingController',
         controllerAs: 'vm'
@@ -34,7 +34,7 @@
 
       .state({
         name: 'main.gym.supps',
-        url: 'supps',
+        url: 'supps/{id}',
         templateUrl: 'app/gym/supps/supps.view.html',
         controller: 'SuppsController',
         controllerAs: 'vm'

@@ -5,6 +5,9 @@
     .factory('User', User)
 
   function User($http, $q, $localStorage) {
+
+    var loggedUserId = null;
+
     var updateApiTokenHeader = function (token) {
       if (token) {
         $http.defaults.headers.common.Authorization = 'Bearer ' + token
@@ -31,7 +34,7 @@
       },
       signup: function (params) {
         var def = $q.defer()
-        $http.post('https://gym2go-server.herokuapp.com/api/admin-users/', {
+        $http.post('https://gym2go-server.herokuapp.com/api/admin-users', {
             email: params.email,
             password: params.password,
             type: params.type
@@ -52,6 +55,13 @@
       },
       logout: function () {
         $localStorage.$reset()
+        loggedUserId = null;
+      },
+      setLoggedUserId: function (id) {
+        loggedUserId = id;
+      },
+      getLoggedUserId: function () {
+        return loggedUserId;
       }
     }
   }
