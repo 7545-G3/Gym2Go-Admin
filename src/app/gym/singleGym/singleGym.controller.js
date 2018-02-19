@@ -34,8 +34,7 @@
 
       function activate() {
         console.log(User.getLoggedUserId());
-        //HARCODEADO POR AHORA
-        vm.registerGymCredentials.ownerUser = "5a7fc59e47dd82001404a8a5";
+        vm.registerGymCredentials.ownerUser = User.getLoggedUserId();
         if ($stateParams.id !== 'new') {
           Gym.getGymById($stateParams.id)
             .then(function (result) {

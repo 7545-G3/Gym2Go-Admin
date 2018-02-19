@@ -17,12 +17,11 @@
 
     function activate() {
       console.log(User.getLoggedUserId());
-      //HARDCODEADO POR AHORA
-      Gym.getGyms("5a7fc59e47dd82001404a8a5")
+      Gym.getGyms(User.getLoggedUserId())
         .then(function (result) {
           if (result.data !== null) {
+            result.data.forEach(function (value) {vm.gyms.push(value)});
             console.log(vm.gyms);
-            vm.gyms.push(result.data);
             vm.goToGym(vm.gyms[0]._id);
           } else {
             vm.goToNewGym();

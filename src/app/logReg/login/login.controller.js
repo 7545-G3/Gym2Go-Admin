@@ -23,9 +23,8 @@
         .then(function (result) {
           console.log(result)
           if (result.data.type == "gym") {
-            //User.setLoggedUserId(result.data._id);
-            //HARCODEADO POR AHORA
-            User.setLoggedUserId("5a7fc59e47dd82001404a8a5");
+            User.setLoggedUserId(result.data._id);
+            console.log(result.data._id);
             $state.go('main.gym')
           } else {
             $state.go('main.admin')
