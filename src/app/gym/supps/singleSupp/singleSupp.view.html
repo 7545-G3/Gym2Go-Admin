@@ -1,0 +1,85 @@
+<div class="container clothingitem-create">
+  <div class="row">
+    <div class="col-12">
+      <div class="panel panel-login">
+        <div class="panel-heading">
+          <div class="row row-flex">
+            <div class="col">
+              <a>{{vm.viewOptions().title}}</a>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div>
+                <form name="new_supp" id="newclothingitem-form" ng-submit="new_supp.$valid && vm.submitSupp()" role="form"
+                      style="display: block;" novalidate>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label for="name">Nombre</label>
+                      <input type="text" name="name" class="form-control" id="name" ng-model="vm.new_supp.name" required>
+                      <div ng-messages="new_supp.description.$error"
+                           ng-show="new_supp.name.$touched && new_supp.name.$error"
+                           role="alert"
+                           class="form-group ng-messages fs-15">
+                        <div ng-message="required"><strong>Ingrese un nombre para indumentaria.</strong></div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label for="price">Costo $</label>
+                      <input type="number" name="price" class="form-control" id="price" ng-model="vm.new_supp.price" ng-pattern="/^[0-9]*$/" required>
+                      <div ng-messages="new_supp.price.$error"
+                           ng-show="new_supp.price.$touched && new_supp.price.$error"
+                           role="alert"
+                           class="form-group ng-messages fs-15">
+                      </div>
+                      <div ng-message="pattern"><strong>El costo de la indumentaria solo puede tener números.</strong></div>
+                      <div ng-message="required"><strong>Ingrese un costo para la indumentaria.</strong></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label for="description">Descripción</label>
+                      <input type="text" name="description" class="form-control" id="description" ng-model="vm.new_supp.description" required>
+                      <div ng-messages="new_supp.description.$error"
+                           ng-show="new_supp.description.$touched && new_supp.description.$error"
+                           role="alert"
+                           class="form-group ng-messages fs-15">
+                        <div ng-message="required"><strong>Ingrese una descripción para la indumentaria.</strong></div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <input type="text" name="brand" class="form-control" id="brand" ng-model="vm.new_supp.brand" required>
+                      <div ng-messages="new_supp.brand.$error"
+                           ng-show="new_supp.brand.$touched && new_supp.brand.$error"
+                           role="alert"
+                           class="form-group ng-messages fs-15">
+                        <div ng-message="required"><strong>Ingrese una marca para la indumentaria.</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label for="gender">Sexo</label>
+                      <input type="radio" ng-model="vm.new_supp.gender" value="M">Masculino
+                      <input type="radio" ng-model="vm.new_supp.gender" value="F">Femenino
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label for="category">Categoría</label>
+                      <input type="radio" ng-model="vm.new_supp.category" value="Remeras">Remeras
+                      <input type="radio" ng-model="vm.new_supp.category" value="Tops">Tops
+                      <input type="radio" ng-model="vm.new_supp.category" value="Shorts">Shorts
+                      <input type="radio" ng-model="vm.new_supp.category" value="Calzas">Calzas
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container activity-create">
+  <div class="row">
+    <div class="col-12">
+      <div class="panel panel-login">
+        <div class="panel-heading">
+          <div class="row row-flex">
+            <div class="col">
+              <a>{{vm.viewOptions().title}}</a>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div>
+                <form name="new_activity" id="newactivity-form" ng-submit="new_activity.$valid && vm.submitActivity()" role="form"
+                      style="display: block;" novalidate>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label for="description">Actividad</label>
+                      <input type="text" name="description" class="form-control" id="description" ng-model="vm.new_activity.description" required>
+                      <div ng-messages="new_activity.description.$error"
+                           ng-show="new_activity.description.$touched && new_activity.description.$error"
+                           role="alert"
+                           class="form-group ng-messages fs-15">
+                        <div ng-message="required"><strong>Ingrese un nombre para la actividad.</strong></div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label for="price">Costo $</label>
+                      <input type="number" name="price" class="form-control" id="price" ng-model="vm.new_activity.price" ng-pattern="/^[0-9]*$/" required>
+                      <div ng-messages="new_activity.price.$error"
+                           ng-show="new_activity.price.$touched && new_activity.price.$error"
+                           role="alert"
+                           class="form-group ng-messages fs-15">
+                      </div>
+                      <div ng-message="pattern"><strong>El costo de la actividad solo puede tener numeros.</strong></div>
+                      <div ng-message="required"><strong>Ingrese un costo para la actividad.</strong></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label for="date">Día</label>
+                      <datepicker>
+                      	<input ng-model="vm.new_activity.date" name="date" id="date"type="text"/>
+                      </datepicker>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <input type="text" name="time" class="form-control" id="time" ng-model="vm.new_activity.time"
+                             ng-pattern="/^(?:([01]\d|2[0-3]):([0-5]\d))?$/"
+                             ng-minlength="5"
+                             ng-maxlength="5" required>
+                      <div ng-messages="new_activity.time.$error"
+                           ng-show="new_activity.time.$touched && new_activity.time.$error"
+                           role="alert"
+                           class="form-group ng-messages fs-15">
+                        <div ng-message="required"><strong>Ingrese la hora de comienzo de la actividad.</strong></div>
+                        <div ng-message="minlength"><strong>El fomato de la hora de comienzo de la actividad es "MM:SS".</strong></div>
+                        <div ng-message="maxlength"><strong>El fomato de la hora de comienzo de la actividad es "MM:SS".</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
