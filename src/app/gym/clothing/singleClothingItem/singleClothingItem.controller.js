@@ -5,8 +5,10 @@
     .module('taxiManagement')
     .controller('SingleClothingItemController', SingleClothingItemController);
 
-  function SingleClothingItemController($state, ClothingItem, $stateParams) {
+  function SingleClothingItemController($state, ClothingItem, $stateParams, Gym) {
     var vm = this;
+
+    vm.goBack = goBack;
 
     vm.new_clothingitem = {
       name: null,
@@ -21,32 +23,22 @@
 
     vm.error = null;
 
-    vm.viewOptions = viewOptions;
-
     vm.submitClothingItem = submitClothingItem;
 
-    vm.functionToApply = ClothingItem.create;
-
     function submitClothingItem() {
-      vm.functionToApply(vm.new_clothingitem)
+      vm.new_clothingitem.price = Number(vm.new_clothingitem.price);
+      ClothingItem.create(vm.new_clothingitem)
         .then(function (result) {
           console.log(result);
-          $state.go('main.gym.clothing')
+          $state.go('main.gym.clothing', {id: Gym.getActiveGym()});
         })
         .catch(function (err) {
           vm.error = err;
         })
     }
 
-    function viewOptions() {
-      var options = {
-        'new': {
-          'title': 'Agregar nueva indumentaria',
-          'button': 'Agregar'
-        }
-      }
-      return options[$stateParams.id]
-
+    function goBack() {
+      $state.go('main.gym.clothing', {id: Gym.getActiveGym()});
     }
 
   }

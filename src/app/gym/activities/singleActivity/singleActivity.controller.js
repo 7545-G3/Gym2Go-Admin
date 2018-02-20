@@ -26,7 +26,7 @@
       Activity.create(vm.new_activity)
         .then(function (result) {
           console.log(result);
-          $state.go('main.gym.activities')
+          $state.go('main.gym.activities', {id: Gym.getActiveGym()});
         })
         .catch(function (err) {
           vm.error = err;
