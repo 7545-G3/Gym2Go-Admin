@@ -9,13 +9,18 @@
     var vm = this;
 
     vm.goBack = goBack;
+    vm.addSchedule = addSchedule;
 
     vm.new_activity = {
       description: null,
       price: null,
+      schedules: []
+    };
+
+    vm.new_schedule = {
       date: null,
       time: null
-    };
+    }
 
     vm.error = null;
 
@@ -36,6 +41,12 @@
 
     function goBack() {
       $state.go('main.gym.activities', {id: Gym.getActiveGym()});
+    }
+
+    function addSchedule() {
+      vm.new_activity.schedules.push(vm.new_schedule.date+" "+vm.new_schedule.time);
+      vm.new_schedule.date = null;
+      vm.new_schedule.time = null;
     }
 
   }

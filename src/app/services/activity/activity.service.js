@@ -12,8 +12,7 @@
         $http.put('https://gym2go-server.herokuapp.com/api/gyms/'+Gym.getActiveGym()+'/activities', {
           description: params.description,
           price: params.price,
-          date: params.date,
-          time: params.time
+          schedules: params.schedules
         })
           .then(function (res) {
             def.resolve(res)
