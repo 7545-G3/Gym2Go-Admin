@@ -15,7 +15,6 @@
     vm.editGymInfo = editGymInfo;
     vm.newSupp = newSupp;
 
-    vm.newSupp = newSupp;
     activate();
 
     function activate() {
