@@ -63,6 +63,14 @@
         controller: 'SingleClothingItemController',
         controllerAs: 'vm'
       })
+      
+      .state({
+        name: 'main.gym.singleSupp',
+        url: 'singleSupp/{id}',
+        templateUrl: 'app/gym/clothing/singleSupp/singleSupp.view.html',
+        controller: 'SingleSuppController',
+        controllerAs: 'vm'
+      })
     $urlRouterProvider.otherwise('login')
   }
 

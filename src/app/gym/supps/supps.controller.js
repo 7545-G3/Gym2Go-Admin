@@ -13,6 +13,7 @@
     vm.goToSupps = goToSupps;
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
+    vm.newSupp = newSupp;
 
     activate();
 
@@ -44,6 +45,11 @@
 
     function editGymInfo() {
      $state.go('main.singleGym', {id: Gym.getActiveGym()});
+    }
+    
+    function newSupp() {
+      console.log('newSupp');
+      $state.go('main.gym.singleSupp', {id: Gym.getActiveGym()});
     }
   }
 })();
