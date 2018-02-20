@@ -19,9 +19,10 @@
     function activate() {
       Gym.getGymById(Gym.getActiveGym())
         .then(function (result) {
-          if (result.data.activities !== null) {
-            result.data.activities.forEach(function (value) {
-              if(value.type === 'SUPPS'){vm.clothing.push(value)}});
+          if (result.data.products !== null) {
+            console.log(result);
+            result.data.products.forEach(function (value) {
+              if(value.type === 'SUPPS'){vm.supps.push(value)}});
           }
         })
         .catch(function (err) {
