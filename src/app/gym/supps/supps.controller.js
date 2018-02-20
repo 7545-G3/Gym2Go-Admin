@@ -13,8 +13,8 @@
     vm.goToSupps = goToSupps;
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
-
     vm.newSupp = newSupp;
+
     activate();
 
     function activate() {
