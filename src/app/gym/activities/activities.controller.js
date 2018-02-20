@@ -14,6 +14,7 @@
     vm.goToSupps = goToSupps;
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
+    vm.newActivity = newActivity;
     
     activate();
 
@@ -48,7 +49,7 @@
     
     function newActivity() {
       console.log('newActivity');
-     $state.go('main.singleActivity', {id: Gym.getActiveGym()});
+      $state.go('main.gym.singleActivity', {id: Gym.getActiveGym()});
     }
   }
 })();

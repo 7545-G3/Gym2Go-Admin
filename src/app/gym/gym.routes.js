@@ -49,8 +49,8 @@
       })
       
       .state({
-        name: 'main.singleActivity',
-        url: 'gym/{id}/singleActivity',
+        name: 'main.gym.singleActivity',
+        url: 'singleActivity/{id}',
         templateUrl: 'app/gym/activities/singleActivity/singleActivity.view.html',
         controller: 'SingleActivityController',
         controllerAs: 'vm'
