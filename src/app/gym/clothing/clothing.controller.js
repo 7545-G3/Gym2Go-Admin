@@ -13,9 +13,24 @@
     vm.goToSupps = goToSupps;
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
+    vm.newClothing = newClothing;
 
-    vm.newClothingItem = newClothingItem;
+    activate();
 
+    function activate() {
+      console.log(Gym.getActiveGym());
+      Gym.getGymById(Gym.getActiveGym())
+        .then(function (result) {
+          if (result.data.products !== null) {
+            result.data.products.forEach(function (value) {
+              if(value.type === 'CLO'){vm.clothing.push(value)}});
+          }
+        })
+        .catch(function (err) {
+          console.log('ERROR LOADING CLOATHING...');
+        })
+    }
+    
     function goToClothing() {
      $state.go('main.gym.clothing', {id: Gym.getActiveGym()});
     }
@@ -31,8 +46,9 @@
     function editGymInfo() {
      $state.go('main.singleGym', {id: Gym.getActiveGym()});
     }
-
-    function newClothingItem() {
+    
+    function newClothing() {
+      console.log('newClothing');
       $state.go('main.gym.singleClothingItem', {id: Gym.getActiveGym()});
     }
   }

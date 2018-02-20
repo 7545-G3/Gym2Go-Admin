@@ -55,7 +55,7 @@
         controller: 'SingleActivityController',
         controllerAs: 'vm'
       })   
-
+      
       .state({
         name: 'main.gym.singleClothingItem',
         url: 'singleClothingItem/{id}',

@@ -18,7 +18,7 @@
       brand: null,
       gender: null,
       type: 'CLO',
-      category: null,
+      category: null
     };
 
     vm.error = null;
