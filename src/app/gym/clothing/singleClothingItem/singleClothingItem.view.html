@@ -18,37 +18,43 @@
                       style="display: block;" novalidate>
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-lg-6 column">
-                      <label for="name">Nombre</label>
+                      <label style="margin-bottom: 10px;" for="name">Nombre</label>
                       <input type="text" name="name" class="form-control" id="name" ng-model="vm.new_clothingitem.name" required>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-6 column">
-                      <label for="price">Costo($)</label>
+                      <label style="margin-bottom: 10px;" for="price">Costo ($)</label>
                       <input type="text" name="price" class="form-control" id="price" ng-model="vm.new_clothingitem.price" ng-pattern="/^[0-9]*$/" required>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-lg-6 column">
-                      <label for="description">Descripción</label>
+                      <label style="margin-bottom: 10px;" for="description">Descripción</label>
                       <input type="text" name="description" class="form-control" id="description" ng-model="vm.new_clothingitem.description" required>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-6 column">
+                      <label style="margin-bottom: 10px;" for="brand">Marca</label>
                       <input type="text" name="brand" class="form-control" id="brand" ng-model="vm.new_clothingitem.brand" required>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                     <div class="col-xs-12 col-sm-6 col-lg-6 column">
-                      <label for="gender">Sexo</label>
-                      <input type="radio" ng-model="vm.new_clothingitem.gender" value="M">Masculino
-                      <input type="radio" ng-model="vm.new_clothingitem.gender" value="F">Femenino
+                      <label style="margin-bottom: 10px;" for="gender">Sexo</label>
+                      <br>
+                      <input type="radio" ng-model="vm.new_clothingitem.gender" value="M"> Masculino</input>
+                      <input style="margin-left: 10px;" type="radio" ng-model="vm.new_clothingitem.gender" value="F"> Femenino</input>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-6 column">
-                      <label for="category">Categoría</label>
-                      <input type="radio" ng-model="vm.new_clothingitem.category" value="Remeras">Remeras
-                      <input type="radio" ng-model="vm.new_clothingitem.category" value="Tops">Tops
-                      <input type="radio" ng-model="vm.new_clothingitem.category" value="Shorts">Shorts
-                      <input type="radio" ng-model="vm.new_clothingitem.category" value="Calzas">Calzas
+                      <label style="margin-bottom: 10px;" for="category">Categoría</label>
+                      <br>
+                      <input type="radio" ng-model="vm.new_clothingitem.category" value="Remeras"> Remeras
+                      <input style="margin-left: 10px;" type="radio" ng-model="vm.new_clothingitem.category" value="Tops"> Tops
+                      <input style="margin-left: 10px;" type="radio" ng-model="vm.new_clothingitem.category" value="Shorts"> Shorts
+                      <input style="margin-left: 10px;" type="radio" ng-model="vm.new_clothingitem.category" value="Calzas"> Calzas
                     </div>
                   </div>
+                  <br>
                   <div class="form-group">
                     <div class="row">
                       <div class="col-xs-6">
