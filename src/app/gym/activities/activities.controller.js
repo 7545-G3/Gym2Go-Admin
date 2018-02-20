@@ -15,6 +15,7 @@
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
     vm.newActivity = newActivity;
+    vm.deleteActivity = deleteActivity;
     
     activate();
 
@@ -48,8 +49,15 @@
     }
     
     function newActivity() {
-      console.log('newActivity');
       $state.go('main.gym.singleActivity', {id: Gym.getActiveGym()});
+    }
+    
+    function deleteActivity(id){
+      Gym.deleteActivity(id,Gym.getActiveGym())
+        .then(function (result){
+          vm.activities.splice(vm.activities.findIndex(function(activity){
+            return activity._id == id}),1)})
+        .catch(function (err){console.log(err)});
     }
   }
 })();

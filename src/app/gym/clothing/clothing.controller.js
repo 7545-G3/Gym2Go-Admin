@@ -14,6 +14,7 @@
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
     vm.newClothing = newClothing;
+    vm.deleteClothingItem = deleteClothingItem;
 
     activate();
 
@@ -50,6 +51,14 @@
     function newClothing() {
       console.log('newClothing');
       $state.go('main.gym.singleClothingItem', {id: Gym.getActiveGym()});
+    }
+    
+    function deleteClothingItem(id){
+      Gym.deleteProduct(id,Gym.getActiveGym())
+        .then(function (result){
+          vm.clothing.splice(vm.clothing.findIndex(function(clothingItem){
+            return clothingItem._id == id}),1)})
+        .catch(function (err){console.log(err)});
     }
   }
 })();

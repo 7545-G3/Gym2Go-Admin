@@ -69,6 +69,30 @@
 
         return def.promise
       },
+      deleteActivity: function (id,idGym) {
+        var def = $q.defer()
+        $http.delete('https://gym2go-server.herokuapp.com/api/gyms/'+idGym+'/activities/'+id)
+          .then(function (res) {
+            def.resolve(res)
+          })
+          .catch(function (err) {
+            def.reject(err)
+          })
+
+        return def.promise
+      },
+      deleteProduct: function (id,idGym) {
+        var def = $q.defer()
+        $http.delete('https://gym2go-server.herokuapp.com/api/gyms/'+idGym+'/products/'+id)
+          .then(function (res) {
+            def.resolve(res)
+          })
+          .catch(function (err) {
+            def.reject(err)
+          })
+
+        return def.promise
+      },
       setActiveGym: function (id) {
         activeGymId = id;
       },

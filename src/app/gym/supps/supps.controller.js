@@ -14,6 +14,7 @@
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
     vm.newSupp = newSupp;
+    vm.deleteSupp = vm.deleteSupp;
 
     activate();
 
@@ -49,6 +50,14 @@
 
     function newSupp() {
       $state.go('main.gym.singleSupp', {id: Gym.getActiveGym()});
+    }
+    
+    function deleteSupp(id){
+      Gym.deleteProduct(id,Gym.getActiveGym())
+        .then(function (result){
+          vm.supps.splice(vm.supps.findIndex(function(supp){
+            return supp._id == id}),1)})
+        .catch(function (err){console.log(err)});
     }
   }
 })();
