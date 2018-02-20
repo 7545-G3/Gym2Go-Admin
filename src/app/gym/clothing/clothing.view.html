@@ -3,7 +3,7 @@
     <div>
       <ul class="nav navbar-nav">
         <li><a href="#" ng-click="vm.goToActivities()">Actividades</a></li>
-        <li><a href="#" ng-click="vm.goToClothing()">Indumentaria</a></li>
+        <li><a href="#">Indumentaria</a></li>
         <li><a href="#" ng-click="vm.goToSupps()">Suplementos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -33,27 +33,21 @@
       </div>
     </nav>
     <div class="container-fluid drivers-list">
-      <div class="row" ng-if="vm.drivers.length === 0">
+      <div class="row" ng-if="vm.clothing.length === 0">
         <div class="col-xs-12">
           <h2 class="text-center">No se encontraron choferes.</h2>
         </div>
       </div>
       <div class="row row-style same-height">
-        <div class="col-xs-12 col-sm-4 col-lg-3 column" ng-repeat="driver in vm.drivers">
+        <div class="col-xs-12 col-sm-4 col-lg-3 column" ng-repeat="driver in vm.clothing">
           <div class="container-fluid driver-card-border driver-card-flex">
             <div class="driver-card-flex-left-column">
-              <h4>{{driver.first_name}} {{driver.last_name}}</h4>
-              <p>
-                Telefono: {{driver.phone}} <br>
-                DNI: {{driver.dni}} <br>
-                Estado: {{driver.state.code}} <br> <br>
-                <strong>Fecha:</strong> {{driver.contact_date}}
-              </p>
+              <!--aca va algo-->
             </div>
             <div class="driver-card-flex-right-column">
               <div class="driver-card-flex-right-item">
                 <button class="btn btn-default custom-btn edit-button"
-                        ng-click="vm.editDriver(driver.id)" title="Editar">
+                         title="Editar">
                 </button>
               </div>
             </div>

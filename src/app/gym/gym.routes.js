@@ -48,6 +48,13 @@
         controllerAs: 'vm'
       })
       
+      .state({
+        name: 'main.singleActivity',
+        url: 'gym/{id}/singleActivity',
+        templateUrl: 'app/gym/activities/singleActivity/singleActivity.view.html',
+        controller: 'SingleActivityController',
+        controllerAs: 'vm'
+      })    
     $urlRouterProvider.otherwise('login')
   }
 

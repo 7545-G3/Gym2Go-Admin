@@ -2,6 +2,7 @@
   "name": "taxiManagement",
   "version": "1.0.1",
   "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0",
     "backup": "^1.1.0",
     "gulp-environments": "^0.1.1",
     "gulp-ng-config": "^1.4.0",
