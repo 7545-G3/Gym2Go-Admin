@@ -17,7 +17,7 @@
       description: null,
       brand: null,
       gender: null,
-      type: 'SUPP',
+      type: 'SUPPS',
       category: null,
     };
 

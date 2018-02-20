@@ -4,12 +4,12 @@
   angular.module('taxiManagement')
     .factory('ClothingItem', ClothingItem)
 
-  function ClothingItem($http, $q, $localStorage) {
+  function ClothingItem($http, $q, $localStorage, Gym) {
 
     return {
       create: function (params) {
         var def = $q.defer()
-        $http.put('https://gym2go-server.herokuapp.com/api/gyms/'+$localStorage.getItem('id')+'/products', {
+        $http.put('https://gym2go-server.herokuapp.com/api/gyms/'+Gym.getActiveGym()+'/products', {
           name: params.name,
           description: params.description,
           price: params.price,
@@ -30,7 +30,7 @@
       },
       delete: function (productId) {
         var def = $q.defer()
-        $http.delete('https://gym2go-server.herokuapp.com/api/gyms/'+$localStorage.getItem('id')+'/products' + productId)
+        $http.delete('https://gym2go-server.herokuapp.com/api/gyms/'+Gym.getActiveGym()+'/products' + productId)
           .then(function (res) {
             def.resolve(res)
           })
