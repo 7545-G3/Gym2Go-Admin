@@ -8,11 +8,26 @@
   function SuppsController($scope, $state, Gym) {
     var vm = this;
 
-    console.log("SUPPS");
+    vm.supps = [];
     vm.goToClothing = goToClothing;
     vm.goToSupps = goToSupps;
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
+
+    activate();
+
+    function activate() {
+      Gym.getGymById(Gym.getActiveGym())
+        .then(function (result) {
+          if (result.data.activities !== null) {
+            result.data.activities.forEach(function (value) {
+              if(value.type === 'SUPPS'){vm.clothing.push(value)}});
+          }
+        })
+        .catch(function (err) {
+          console.log('ERROR LOADING SUPPS...');
+        })
+    }
 
     function goToClothing() {
      $state.go('main.gym.clothing', {id: Gym.getActiveGym()});

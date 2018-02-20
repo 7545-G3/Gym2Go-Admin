@@ -16,7 +16,7 @@
       brand: null,
       gender: null,
       type: 'CLO',
-      category: null,
+      category: null
     };
 
     vm.error = null;
@@ -30,7 +30,6 @@
     function submitClothingItem() {
       vm.functionToApply(vm.new_clothingitem)
         .then(function (result) {
-          console.log(result);
           $state.go('main.gym.clothing')
         })
         .catch(function (err) {

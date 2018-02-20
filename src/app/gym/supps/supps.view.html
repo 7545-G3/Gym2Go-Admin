@@ -33,27 +33,30 @@
       </div>
     </nav>
     <div class="container-fluid drivers-list">
-      <div class="row" ng-if="vm.drivers.length === 0">
+      <div class="row" ng-if="vm.supps.length === 0">
         <div class="col-xs-12">
           <h2 class="text-center">No se encontraron suplementos.</h2>
         </div>
       </div>
       <div class="row row-style same-height">
-        <div class="col-xs-12 col-sm-4 col-lg-3 column" ng-repeat="driver in vm.drivers">
+        <div class="col-xs-12 col-sm-4 col-lg-3 column" ng-repeat="supp in vm.supps">
           <div class="container-fluid driver-card-border driver-card-flex">
             <div class="driver-card-flex-left-column">
-              <h4>{{driver.first_name}} {{driver.last_name}}</h4>
+              <h4>{{supp.name}}</h4>
               <p>
-                Telefono: {{driver.phone}} <br>
-                DNI: {{driver.dni}} <br>
-                Estado: {{driver.state.code}} <br> <br>
-                <strong>Fecha:</strong> {{driver.contact_date}}
+                Precio: ${{supp.price}} <br>
+              </p>
+              <p>
+                Marca: {{supp.brand}} <br>
+              </p>
+              <p>
+                description: {{supp.description}} <br>
               </p>
             </div>
             <div class="driver-card-flex-right-column">
               <div class="driver-card-flex-right-item">
                 <button class="btn btn-default custom-btn edit-button"
-                        ng-click="vm.editDriver(driver.id)" title="Editar">
+                        title="Editar">
                 </button>
               </div>
             </div>
