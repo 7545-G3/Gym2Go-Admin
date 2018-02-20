@@ -5,8 +5,10 @@
     .module('taxiManagement')
     .controller('SingleActivityController', SingleActivityController);
 
-  function SingleActivityController($state, Activity, $stateParams) {
+  function SingleActivityController($state, Activity, $stateParams, Gym) {
     var vm = this;
+
+    vm.goBack = goBack;
 
     vm.new_activity = {
       description: null,
@@ -17,14 +19,11 @@
 
     vm.error = null;
 
-    vm.viewOptions = viewOptions;
-
     vm.submitActivity = submitActivity;
 
-    vm.functionToApply = Activity.create;
-
     function submitActivity() {
-      vm.functionToApply(vm.new_activity)
+      vm.new_activity.price = Number(vm.new_activity.price);
+      Activity.create(vm.new_activity)
         .then(function (result) {
           console.log(result);
           $state.go('main.gym.activities')
@@ -32,17 +31,11 @@
         .catch(function (err) {
           vm.error = err;
         })
+
     }
 
-    function viewOptions() {
-      var options = {
-        'new': {
-          'title': 'Agregar nueva actividad',
-          'button': 'Agregar'
-        }
-      }
-      return options[$stateParams.id]
-
+    function goBack() {
+      $state.go('main.gym.activities', {id: Gym.getActiveGym()});
     }
 
   }
