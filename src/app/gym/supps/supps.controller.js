@@ -14,7 +14,7 @@
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
     vm.newSupp = newSupp;
-    vm.deleteSupp = vm.deleteSupp;
+    vm.deleteSupp = deleteSupp;
 
     activate();
 
