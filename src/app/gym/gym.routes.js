@@ -54,7 +54,24 @@
         templateUrl: 'app/gym/activities/singleActivity/singleActivity.view.html',
         controller: 'SingleActivityController',
         controllerAs: 'vm'
-      })    
+      })   
+
+      .state({
+        name: 'main.gym.singleClothingItem',
+        url: 'singleClothingItem/{id}',
+        templateUrl: 'app/gym/clothing/singleClothingItem/singleClothingItem.view.html',
+        controller: 'SingleClothingItemController',
+        controllerAs: 'vm'
+      })  
+
+      .state({
+        name: 'main.gym.singleSupp',
+        url: 'singleSupp/{id}',
+        templateUrl: 'app/gym/supps/singleSupp/singleSupp.view.html',
+        controller: 'SingleSuppController',
+        controllerAs: 'vm'
+      })  
+
     $urlRouterProvider.otherwise('login')
   }
 

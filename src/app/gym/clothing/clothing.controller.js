@@ -14,6 +14,8 @@
     vm.goToActivities = goToActivities;
     vm.editGymInfo = editGymInfo;
 
+    vm.newClothingItem = newClothingItem;
+
     function goToClothing() {
      $state.go('main.gym.clothing', {id: Gym.getActiveGym()});
     }
@@ -28,6 +30,10 @@
 
     function editGymInfo() {
      $state.go('main.singleGym', {id: Gym.getActiveGym()});
+    }
+
+    function newClothingItem() {
+      $state.go('main.gym.singleClothingItem', {id: Gym.getActiveGym()});
     }
   }
 })();
