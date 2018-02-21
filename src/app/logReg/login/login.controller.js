@@ -27,6 +27,8 @@
             console.log(result.data._id);
             $state.go('main.gym')
           } else {
+            User.setLoggedUserId(result.data._id);
+            console.log(result.data._id);
             $state.go('main.admin')
           }
         })

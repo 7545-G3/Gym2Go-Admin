@@ -8,24 +8,64 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ui-sref="main.drivers">
-        Gym2Go
+      <a style="font-size: 20px; font-weight: 700;" class="navbar-brand">
+        <i>Gym2Go</i>
       </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a >Gimnasios</a></li>
+        <li><a style="font-size: 16px; font-weight: 700;"><i>Gimnasios</i></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a ng-click="mainController.logout()" class="btn btn-navbar">Cerrar sesión</a></li>
+        <li><a style="font-size: 16px; font-weight: 700;" ng-click="mainController.logout()" class="btn btn-navbar">Cerrar sesión</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div id="wrapper" ng-class="{'toggled' : variable}">
-
+<div>
+  <div class="container-fluid drivers-list">
+      <div class="row" ng-if="vm.gyms.length === 0">
+        <div class="col-xs-12">
+          <h2 class="text-center">No se encontraron gimnasios.</h2>
+        </div>
+      </div>
+      <div class="row row-style same-height">
+        <div class="col-xs-12 col-sm-4 col-lg-3 column" ng-repeat="gym in vm.gyms">
+          <div ng-if="gym.validated==true" class="container-fluid driver-card-border driver-card-flex" style="background-color: #addba8;">
+            <div class="driver-card-flex-left-column">
+              <h4>{{gym.name}}</h4>
+              <p>
+                <strong>Direccion:</strong> {{gym.address}} <br>
+                <strong>Estado:</strong> {{gym.estado}} <br>
+              </p>
+            </div>
+            <div class="driver-card-flex-right-column">
+              <div class="driver-card-flex-right-item">
+                <button class="btn btn-default custom-btn power-button" ng-click="vm.switchState(gym._id, gym.validated)" title="Eliminar">
+                </button>
+              </div>
+            </div>
+          </div>
+          <div ng-if="gym.validated==false" class="container-fluid driver-card-border driver-card-flex" style="background-color: #d67e7e">
+            <div class="driver-card-flex-left-column">
+              <h4>{{gym.name}}</h4>
+              <p>
+                <strong>Direccion:</strong> {{gym.address}} <br>
+                <strong>Estado:</strong> {{gym.estado}} <br>
+              </p>
+            </div>
+            <div class="driver-card-flex-right-column">
+              <div class="driver-card-flex-right-item">
+                <button class="btn btn-default custom-btn power-button" ng-click="vm.switchState(gym._id, gym.validated)" title="Eliminar">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 
