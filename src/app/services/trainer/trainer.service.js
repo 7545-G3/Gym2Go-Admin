@@ -26,7 +26,7 @@
       },
       delete: function (trainerId) {
         var def = $q.defer()
-        $http.delete('https://gym2go-server.herokuapp.com/api/gyms/'+Gym.getActiveGym()+'/trainers' + trainerId)
+        $http.delete('https://gym2go-server.herokuapp.com/api/gyms/'+Gym.getActiveGym()+'/trainers/' + trainerId)
           .then(function (res) {
             def.resolve(res)
           })

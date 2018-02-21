@@ -5,7 +5,7 @@
     .module('taxiManagement')
     .controller('TrainersController', TrainersController)
 
-  function TrainersController($scope, $state, Gym) {
+  function TrainersController($scope, $state, Gym, Trainer) {
     var vm = this;
 
     vm.trainers = [];
@@ -52,7 +52,7 @@
     }
     
     function deleteTrainer(id){
-      Gym.deleteTrainer(id,Gym.getActiveGym())
+      Trainer.delete(id)
         .then(function (result){
           vm.trainers.splice(vm.trainers.findIndex(function(trainer){
             return trainer._id == id}),1)})
