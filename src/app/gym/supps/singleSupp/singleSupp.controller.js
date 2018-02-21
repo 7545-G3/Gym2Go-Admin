@@ -9,7 +9,6 @@
     var vm = this;
 
     vm.goBack = goBack;
-    vm.loadImage = loadImage;
 
     vm.new_supp = {
       name: null,
@@ -26,6 +25,21 @@
 
     vm.submitSupp = submitSupp;
 
+    activate();
+
+    function activate() {
+      var fileSelect = document.getElementById("image");
+      fileSelect.onchange = function() {
+        var f = fileSelect.files[0], r = new FileReader();
+
+        r.onloadend = function(e) { 
+          vm.new_supp.image = e.target.result;
+        }
+
+        r.readAsDataURL(f);
+      };
+    }
+
     function submitSupp () {
       vm.new_supp.price = Number(vm.new_supp.price);
       Supplement.create(vm.new_supp)
@@ -40,22 +54,6 @@
 
     function goBack() {
       $state.go('main.gym.supps', {id: Gym.getActiveGym()});
-    }
-
-    function loadImage() {
-
-      var fileSelect = document.createElement('input');
-      fileSelect.type = 'file';
-      fileSelect.click();
-      fileSelect.onchange = function() {
-        var f = fileSelect.files[0], r = new FileReader();
-
-        r.onloadend = function(e) { 
-          vm.new_supp.image = e.target.result;
-        }
-
-        r.readAsDataURL(f);
-      };
     }
 
   }
