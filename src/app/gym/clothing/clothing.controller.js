@@ -15,6 +15,7 @@
     vm.editGymInfo = editGymInfo;
     vm.newClothing = newClothing;
     vm.deleteClothingItem = deleteClothingItem;
+    vm.goToTrainers = goToTrainers;
 
     activate();
 
@@ -42,6 +43,10 @@
 
     function goToSupps() {
      $state.go('main.gym.supps', {id: Gym.getActiveGym()});
+    }
+    
+    function goToTrainers() {
+     $state.go('main.gym.trainers', {id: Gym.getActiveGym()});
     }
 
     function editGymInfo() {

@@ -3,33 +3,31 @@
 
   angular
     .module('taxiManagement')
-    .controller('SuppsController', SuppsController)
+    .controller('TrainersController', TrainersController)
 
-  function SuppsController($scope, $state, Gym) {
+  function TrainersController($scope, $state, Gym) {
     var vm = this;
 
-    vm.supps = [];
+    vm.trainers = [];
     vm.goToClothing = goToClothing;
     vm.goToSupps = goToSupps;
     vm.goToActivities = goToActivities;
-    vm.goToTrainers = goToTrainers;
     vm.editGymInfo = editGymInfo;
-    vm.newSupp = newSupp;
-    vm.deleteSupp = deleteSupp;
+    vm.newTrainer = newTrainer;
+    vm.deleteTrainer = deleteTrainer;
 
     activate();
 
     function activate() {
       Gym.getGymById(Gym.getActiveGym())
         .then(function (result) {
-          if (result.data.products !== null) {
+          if (result.data.trainers !== null) {
             console.log(result);
-            result.data.products.forEach(function (value) {
-              if(value.type === 'SUPPS'){vm.supps.push(value)}});
+            result.data.trainers.forEach(function (value) {vm.trainers.push(value)});
           }
         })
         .catch(function (err) {
-          console.log('ERROR LOADING SUPPS...');
+          console.log('ERROR LOADING TRAINERS...');
         })
     }
 
@@ -44,25 +42,20 @@
     function goToSupps() {
      $state.go('main.gym.supps', {id: Gym.getActiveGym()});
     }
-    
-    function goToTrainers() {
-     $state.go('main.gym.trainers', {id: Gym.getActiveGym()});
-    }
-
 
     function editGymInfo() {
      $state.go('main.singleGym', {id: Gym.getActiveGym()});
     }
 
-    function newSupp() {
-      $state.go('main.gym.singleSupp', {id: Gym.getActiveGym()});
+    function newTrainer() {
+      $state.go('main.gym.singleTrainer', {id: Gym.getActiveGym()});
     }
     
-    function deleteSupp(id){
-      Gym.deleteProduct(id,Gym.getActiveGym())
+    function deleteTrainer(id){
+      Gym.deleteTrainer(id,Gym.getActiveGym())
         .then(function (result){
-          vm.supps.splice(vm.supps.findIndex(function(supp){
-            return supp._id == id}),1)})
+          vm.trainers.splice(vm.trainers.findIndex(function(trainer){
+            return trainer._id == id}),1)})
         .catch(function (err){console.log(err)});
     }
   }

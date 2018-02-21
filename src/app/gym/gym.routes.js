@@ -39,6 +39,14 @@
         controller: 'SuppsController',
         controllerAs: 'vm'
       })
+    
+      .state({
+        name: 'main.gym.trainers',
+        url: 'trainers/{id}',
+        templateUrl: 'app/gym/trainers/trainers.view.html',
+        controller: 'TrainersController',
+        controllerAs: 'vm'
+      })
 
       .state({
         name: 'main.singleGym',
@@ -69,6 +77,14 @@
         url: 'singleSupp/{id}',
         templateUrl: 'app/gym/supps/singleSupp/singleSupp.view.html',
         controller: 'SingleSuppController',
+        controllerAs: 'vm'
+      })  
+
+      .state({
+        name: 'main.gym.singleTrainer',
+        url: 'singleTrainer/{id}',
+        templateUrl: 'app/gym/trainers/singleTrainer/singleTrainer.view.html',
+        controller: 'SingleTrainerController',
         controllerAs: 'vm'
       })  
 

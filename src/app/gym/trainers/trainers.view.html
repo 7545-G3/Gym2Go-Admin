@@ -4,8 +4,8 @@
       <ul class="nav navbar-nav">
         <li><a href="#" ng-click="vm.goToActivities()">Actividades</a></li>
         <li><a href="#" ng-click="vm.goToClothing()">Indumentaria</a></li>
-        <li><a href="#">Suplementos</a></li>
-        <li><a href="#" ng-click="vm.goToTrainers()">Entrenadores</a></li>
+          <li><a href="#" ng-click="vm.goToSupps()">Suplementos</a></li>
+        <li><a href="#">Entrenadores</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a ng-click="vm.editGymInfo()" class="btn btn-navbar">Editar informacion</a></li>
@@ -26,7 +26,7 @@
           <div class="col-xs-6 col-sm-3 col-sm-offset-6 col-lg-3 col-lg-offset-6 column-right">
             <div align="right">
               <ul class="nav navbar-nav float-right">
-                <li><a ng-click="vm.newSupp()" class="btn big-btn"><strong>Nuevo Suplemento</strong></a></li>
+                <li><a ng-click="vm.newTrainer()" class="btn big-btn"><strong>Nuevo Entrenador</strong></a></li>
               </ul>
             </div>
           </div>
@@ -34,29 +34,29 @@
       </div>
     </nav>
     <div class="container-fluid drivers-list">
-      <div class="row" ng-if="vm.supps.length === 0">
+      <div class="row" ng-if="vm.trainers.length === 0">
         <div class="col-xs-12">
-          <h2 class="text-center">No se encontraron suplementos.</h2>
+          <h2 class="text-center">No se encontraron entrenadores.</h2>
         </div>
       </div>
       <div class="row row-style same-height">
-        <div class="col-xs-12 col-sm-4 col-lg-3 column" ng-repeat="supp in vm.supps">
+        <div class="col-xs-12 col-sm-4 col-lg-3 column" ng-repeat="trainer in vm.trainers">
           <div class="container-fluid driver-card-border driver-card-flex">
             <div class="driver-card-flex-left-column">
-              <h4>{{supp.name}}</h4>
+              <h4>{{trainer.name}}</h4>
               <p>
-                Precio: ${{supp.price}} <br>
+                Precio por hora: ${{trainer.price}} <br>
               </p>
               <p>
-                Marca: {{supp.brand}} <br>
+                Edad: {{trainer.age}} <br>
               </p>
               <p>
-                Descripcion: {{supp.description}} <br>
+                Especialidad: {{trainer.specialty}} <br>
               </p>
             </div>
             <div class="driver-card-flex-right-column">
               <div class="driver-card-flex-right-item">
-                <button class="btn btn-default custom-btn delete-button" ng-click="vm.deleteSupp(supp._id)" title="Eliminar">
+                <button class="btn btn-default custom-btn delete-button" ng-click="vm.deleteTrainer(supp._id)" title="Eliminar">
                 </button>
               </div>
             </div>
