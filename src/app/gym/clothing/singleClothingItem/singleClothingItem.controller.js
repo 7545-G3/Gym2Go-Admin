@@ -9,6 +9,7 @@
     var vm = this;
 
     vm.goBack = goBack;
+    vm.loadImage = loadImage;
 
     vm.new_clothingitem = {
       name: null,
@@ -39,6 +40,22 @@
 
     function goBack() {
       $state.go('main.gym.clothing', {id: Gym.getActiveGym()});
+    }
+
+    function loadImage() {
+
+      var fileSelect = document.createElement('input');
+      fileSelect.type = 'file';
+      fileSelect.click();
+      fileSelect.onchange = function() {
+        var f = fileSelect.files[0], r = new FileReader();
+
+        r.onloadend = function(e) { 
+          vm.new_clothingitem.image = e.target.result;
+        }
+
+        r.readAsDataURL(f);
+      };
     }
 
   }
