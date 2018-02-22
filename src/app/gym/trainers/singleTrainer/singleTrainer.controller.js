@@ -39,6 +39,7 @@
 
     function submitTrainer () {
       vm.new_trainer.price = Number(vm.new_trainer.price);
+      console.log(vm.new_trainer.image);
       Trainer.create(vm.new_trainer)
         .then(function (result) {
           console.log(result);

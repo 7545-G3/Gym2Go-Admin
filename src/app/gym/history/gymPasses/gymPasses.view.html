@@ -1,0 +1,31 @@
+<div class="notifications-container">
+  <table class="table table-responsive table-style">
+    <thead>
+    <tr>
+      <th>Gym</th>
+      <th>Actividad</th>
+      <th>Fecha</th>
+      <th>Indumentaria</th>
+      <th>Entrenador</th>
+      <th>Codigo</th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="gymPass in vm.gymPasses">
+    <tr>
+      <td>{{gymPass.gym.name}}</td>
+      <td>{{gymPass.activity.description}} (${{gymPass.activity.price}})</td>
+      <td>{{gymPass.date}}</td>
+      <td>
+        <ul ng-if="gymPass.clothes.length > 0">
+          <li ng-repeat="item in gymPass.clothes">
+            {{item.name}} (${{item.price}})
+            <br>
+          </li>
+        </ul>
+      </td>
+      <td><p ng-if="gymPass.trainer != null">{{gymPass.trainer.name}} (${{gymPass.trainer.price}})</p></td>
+      <td>asf72kjs80389sfh134sd03</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

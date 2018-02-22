@@ -29,7 +29,16 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a style="font-size: 16px; font-weight: 700;" ng-click="mainController.logout()" class="btn btn-navbar">Cerrar sesión</a></li>
+        <li class="dropdown">
+          <a style="font-size: 16px; font-weight: 700;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+             aria-haspopup="true" aria-expanded="false">Opciones<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a style="font-size: 14px; font-weight: 500; color: #777;" class="btn" href="#" ng-click="vm.goToPasses()">Historial de actividades</a></li>
+            <li><a style="font-size: 14px; font-weight: 500; color: #777;" class="btn" href="#" ng-click="vm.goToPurchases()">Historial de suplementos</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a style="font-size: 14px; font-weight: 500; color: #777;" class="btn" href="#" ng-click="mainController.logout()">Cerrar sesión</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

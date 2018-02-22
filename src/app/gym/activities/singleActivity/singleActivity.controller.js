@@ -28,6 +28,7 @@
 
     function submitActivity() {
       vm.new_activity.price = Number(vm.new_activity.price);
+      console.log(vm.new_activity);
       Activity.create(vm.new_activity)
         .then(function (result) {
           console.log(result);

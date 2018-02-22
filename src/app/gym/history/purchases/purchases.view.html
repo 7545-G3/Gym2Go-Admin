@@ -1,0 +1,26 @@
+<div class="notifications-container">
+  <table class="table table-responsive table-style">
+    <thead>
+    <tr>
+      <th>Gym</th>
+      <th>Suplemento</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Categoria</th>
+      <th>Marca</th>
+      <th>Codigo</th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="purchase in vm.purchases">
+    <tr>
+      <td>{{purchase.gym.name}}</td>
+      <td>{{purchase.supplement.name}}</td>
+      <td>{{purchase.cant}}</td>
+      <td>{{purchase.supplement.price}}</td>
+      <td>{{purchase.supplement.category}}</td>
+      <td>{{purchase.supplement.brand}}</td>
+      <td>asf72kjs80389sfh134sd03</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

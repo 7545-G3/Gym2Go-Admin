@@ -88,6 +88,22 @@
         controllerAs: 'vm'
       })  
 
+      .state({
+        name: 'main.gym.passes',
+        url: 'passes',
+        templateUrl: 'app/gym/history/gymPasses/gymPasses.view.html',
+        controller: 'GymPassesController',
+        controllerAs: 'vm'
+      })
+
+      .state({
+        name: 'main.gym.purchases',
+        url: 'purchases',
+        templateUrl: 'app/gym/history/purchases/purchases.view.html',
+        controller: 'PurchasesController',
+        controllerAs: 'vm'
+      })
+
     $urlRouterProvider.otherwise('login')
   }
 

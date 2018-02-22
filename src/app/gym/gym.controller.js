@@ -12,6 +12,8 @@
 
     vm.goToNewGym = goToNewGym;
     vm.goToGym = goToGym;
+    vm.goToPasses = goToPasses;
+    vm.goToPurchases = goToPurchases;
 
     activate();
 
@@ -39,6 +41,14 @@
 
     function goToNewGym() {
       $state.go('main.singleGym', {id: 'new'});
+    }
+
+    function goToPasses() {
+      $state.go('main.gym.passes');
+    }
+
+    function goToPurchases() {
+      $state.go('main.gym.purchases');
     }
 
   }

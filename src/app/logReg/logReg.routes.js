@@ -18,7 +18,7 @@
 
       .state({
         name: 'register',
-        url: '/register',
+        url: '/register?token=asd89320dfjlsh09e1',
         templateUrl: 'app/logReg/register/register.view.html',
         controller: 'RegisterController',
         controllerAs: 'vm'
