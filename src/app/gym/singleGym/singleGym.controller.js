@@ -53,9 +53,9 @@
           vm.functionToApply = Gym.update;
         }
 
-        if (vm.registerGymCredentials.address == "Av. Independencia 450") {
-          vm.registerGymCredentials.lat = -34.617158; 
-          vm.registerGymCredentials.lon = -58.372420;
+        if (vm.registerGymCredentials.address == "Azopardo 930") {
+          vm.registerGymCredentials.lat = -34.618802;
+          vm.registerGymCredentials.lon = -58.367233;
         }
 
         vm.functionToApply(vm.registerGymCredentials)
