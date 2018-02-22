@@ -19,6 +19,8 @@
         cc_expiry: null*/
       }
 
+      vm.token = "asd89320dfjlsh09e1";
+
       vm.error = null;
 
       vm.register = register;

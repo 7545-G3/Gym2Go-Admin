@@ -21,7 +21,8 @@
       console.log(User.getLoggedUserId());
       Gym.getGyms(User.getLoggedUserId())
         .then(function (result) {
-          if (result.data !== null) {
+          console.log(result);
+          if (result.data.length !== 0) {
             result.data.forEach(function (value) {vm.gyms.push(value)});
             console.log(vm.gyms);
             vm.goToGym(vm.gyms[0]._id);

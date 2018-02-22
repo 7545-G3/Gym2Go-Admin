@@ -13,8 +13,8 @@
         id: null,
         name: null,
         address: null,
-        lat: 100,
-        lon: 100,
+        lat: null,
+        lon: null,
         ownerUser: null/*,
         cc_name: null,
         cc_number: null,
@@ -51,6 +51,11 @@
       function submitGym() {
         if ($stateParams.id !== 'new') {
           vm.functionToApply = Gym.update;
+        }
+
+        if (vm.registerGymCredentials.address == "Av. Independencia 450") {
+          vm.registerGymCredentials.lat = -34.617158; 
+          vm.registerGymCredentials.lon = -58.372420;
         }
 
         vm.functionToApply(vm.registerGymCredentials)
